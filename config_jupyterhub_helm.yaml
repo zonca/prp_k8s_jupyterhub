@@ -1,0 +1,24 @@
+prePuller:
+  enabled: false
+hub:
+  db:
+    type: sqlite-memory
+  rbac:
+    enabled: true
+
+singleuser:
+  storage:
+      type: none
+  memory:
+    guarantee: 1G
+    limit: null
+#  image:
+#    name: zonca/ml_platform_jupyterhub
+#    tag: latest
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+
+auth:
+  type: cilogon
