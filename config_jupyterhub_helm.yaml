@@ -7,14 +7,19 @@ hub:
     enabled: true
 
 singleuser:
-  storage:
-      type: none
   memory:
     guarantee: 1G
     limit: null
 #  image:
 #    name: zonca/ml_platform_jupyterhub
 #    tag: latest
+  storage:
+    capacity: 10Gi
+    extraVolumeMounts: []
+    extraVolumes: []
+    homeMountPath: /home/jovyan
+    type: dynamic
+    class: rook-block
 ingress:
   enabled: true
   annotations:
