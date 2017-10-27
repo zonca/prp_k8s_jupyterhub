@@ -16,7 +16,7 @@ singleuser:
   storage:
     #type: none
     capacity: 10Gi
-    extraVolumeMounts: [{"name":"nvidia-driver", "mountPath":"/host-libs", "readOnly":true]
+    extraVolumeMounts: [{"name":"nvidia-driver", "mountPath":"/host-libs", "readOnly":true}]
     extraVolumes: [{"name":"nvidia-driver", "hostPath":{"path":"/var/lib/nvidia-docker/volumes/nvidia_driver/384.90/lib64"}}]
     homeMountPath: /home/jovyan
     type: dynamic
