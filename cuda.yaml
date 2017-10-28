@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nvidiasminocuda
+  labels:
+    k8s-app: jupyter1
+  namespace: jupnocuda
+spec:
+  restartPolicy: Never
+  containers:
+    - image: ivukotic/ml_platform_auto:latest
+      name: ml
+      #resources:
+      #  limits:
+     #     alpha.kubernetes.io/nvidia-gpu: 1 # requesting 1 GPU
+      #args: [ "/.run", "sleep", "36060000"]
+      args: [ "nvidia-smi" ]
+
+      ports:
+        - containerPort: 9999
+      volumeMounts:
+        - name: nvidia-driver
+          mountPath: /host-libs
+          readOnly: true
+  volumes:
+      - name: nvidia-driver
+        hostPath:
+          path: /var/lib/nvidia-docker/volumes/nvidia_driver/384.90/lib64
