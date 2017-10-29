@@ -10,9 +10,6 @@ singleuser:
   memory:
     guarantee: 1G
     limit: null
-  image:
-    name: zonca/ml_platform_jupyterhub
-    tag: latest
   storage:
     type: none
     capacity: 10Gi
