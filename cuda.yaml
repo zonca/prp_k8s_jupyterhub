@@ -1,18 +1,19 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nvidiasminocuda
+  name: nvidiasmi
   labels:
     k8s-app: jupyter1
-  namespace: jupnocuda
+  namespace: jup
 spec:
   restartPolicy: Never
   containers:
-    - image: ivukotic/ml_platform_auto:latest
+    #- image: ivukotic/ml_platform_auto:latest
+    - image: zonca/ml_platform_jupyterhub:latest
       name: ml
-      #resources:
-      #  limits:
-     #     alpha.kubernetes.io/nvidia-gpu: 1 # requesting 1 GPU
+      resources:
+        limits:
+          alpha.kubernetes.io/nvidia-gpu: 1 # requesting 1 GPU
       #args: [ "/.run", "sleep", "36060000"]
       args: [ "nvidia-smi" ]
 
