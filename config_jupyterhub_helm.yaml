@@ -14,12 +14,12 @@ singleuser:
     name: zonca/ml_platform_jupyterhub
     tag: latest
   storage:
-    #type: none
+    type: none
     capacity: 10Gi
     extraVolumeMounts: []
     extraVolumes: []
     homeMountPath: /home/jovyan
-    type: dynamic
+    #type: dynamic
     class: rook-block
 ingress:
   enabled: true
